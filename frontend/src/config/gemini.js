@@ -1,5 +1,5 @@
 export default async function run(prompt) {
-  const res = await fetch("http://localhost:5000/ask", {
+  const res = await fetch(`${import.meta.env.VITE_API_BASE}/ask`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ prompt }),

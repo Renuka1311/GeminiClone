@@ -6,7 +6,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+  })
+);
 app.use(express.json());
 
 const ai = new GoogleGenAI({
@@ -29,4 +33,4 @@ app.post("/ask", async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log("✅ Gemini backend running on 5000"));
+app.listen(process.env.PORT, () => console.log(" BACKEND RUNNING "));
